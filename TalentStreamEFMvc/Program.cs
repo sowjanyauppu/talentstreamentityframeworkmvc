@@ -14,6 +14,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<TalentStreamDbContext>(options =>
     options.UseMySql(configuration.GetConnectionString("TalentStreamConnection"), new MySqlServerVersion(new Version(5, 5, 41))));
+
+builder.Services.AddDbContext<ApplicantDbContext>(options =>
+    options.UseMySql(configuration.GetConnectionString("TalentStreamConnection"), new MySqlServerVersion(new Version(5, 5, 41))));
+
 builder.Services.AddScoped<RecruiterService>();
 
 var app = builder.Build();
